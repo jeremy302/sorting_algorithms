@@ -11,7 +11,7 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int *arr = NULL, *arr_out = NULL, j = 0, num, pos;
+	int *arr = NULL, _arr_iv = 0, j = 0, k = 0, prv, cur;
 	unsigned int i = 0, max = 0;
 
 	if (array == NULL || !size)
@@ -19,27 +19,26 @@ void counting_sort(int *array, size_t size)
 	for (i = 0; i < size; ++i)
 		if ((unsigned int)array[i] > max)
 			max = array[i];
-	arr = malloc(sizeof(int) * (max + 1 + size));
-	if (arr == NULL)
-		return;
-	arr_out = arr + max + 1;
+	arr = malloc(sizeof(int) * (max + 1));
 	for (i = 0; i < max + 1; ++i)
 		arr[i] = 0;
 	for (i = 0; i < size; ++i)
 		arr[array[i]] += 1;
 
 	for (i = 0; i < max + 1; ++i)
-		arr[i] += i ? arr[i - 1] : 0;
-	print_array(arr, max + 1);
-
-	for (j = size - 1; j >= 0; --j)
 	{
-		num = array[j];
-		pos = arr[num];
-		arr_out[pos - 1] = array[j];
-		--arr[num];
+		(void) _arr_iv, (void) j;
+		_arr_iv = arr[i];
+		arr[i] = arr[i] + (i ? arr[i - 1] : 0);
 	}
-	for (i = 0; i < size; ++i)
-		array[i] = arr_out[i];
+
+	for (k = 0, i = 0; i < max + 1; ++i)
+	{
+		prv = i > 0 ? arr[i - 1] : 0;
+		cur = arr[i];
+		for (j = prv; j < cur; ++j)
+			array[k++] = i;
+	}
+	print_array(arr, max + 1);
 	free(arr);
 }
