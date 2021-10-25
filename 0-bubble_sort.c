@@ -15,7 +15,7 @@ void bubble_sort(int *array, size_t size)
 	char sorted = 1;
 
 	if (array != NULL)
-		do
+		do {
 			for (sorted = 1, i = 0, ++j; i < size - j; ++i)
 				if (array[i] > array[i + 1])
 				{
@@ -25,5 +25,5 @@ void bubble_sort(int *array, size_t size)
 					array[i + 1] = tmp;
 					print_array(array, size);
 				}
-		while (!sorted);
+		} while (!sorted);
 }
