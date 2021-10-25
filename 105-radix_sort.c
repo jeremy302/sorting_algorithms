@@ -44,7 +44,7 @@ void radix_sort(int *array, size_t size)
 			dig = (array[j] / div) % 10;
 			pos = arr[dig];
 			arr_out[pos - 1] = array[j];
-			arr[dig] -= 1;
+			--arr[dig];
 		}
 		for (i = 0; i < size; ++i)
 			array[i] = arr_out[i];
