@@ -16,7 +16,7 @@ void shell_sort(int *array, size_t size)
 
 	while (pow_3 <= KN)
 		pow_3 *= 3, ++K;
-	if (array == NULL)
+	if (array == NULL || size < 2)
 		return;
 	for (; K > 0; --K, pow_3 /= 3)
 	{

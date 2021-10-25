@@ -55,10 +55,13 @@ int card_val(const card_t *card)
  */
 void sort_deck(deck_node_t **deck)
 {
-	deck_node_t *cur = NULL, *nxt = NULL, *cards[clen], *ci = *deck, *tmp;
+	deck_node_t *cur = NULL, *nxt = NULL, *cards[clen], *ci = NULL, *tmp;
 	char sorted = 1;
 	int i = 0, j;
 
+	if (deck == NULL || *deck == NULL)
+		return;
+	ci = *deck;
 	while (ci != NULL)
 	{
 		cards[i++] = ci;

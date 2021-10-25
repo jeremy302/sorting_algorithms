@@ -94,7 +94,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *lo = NULL, *hi = NULL, *cur = NULL, *nxt = NULL, *prv = NULL;
 	char in_lo = 0, in_hi = 0;
 
-	if (list != NULL)
+	if (list != NULL && *list != NULL)
 	{
 		lo = *list;
 		while (lo != hi)

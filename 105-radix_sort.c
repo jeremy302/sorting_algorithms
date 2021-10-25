@@ -14,7 +14,7 @@ void radix_sort(int *array, size_t size)
 	int *arr = NULL, *arr_out = NULL, j = 0, div = 1, dig = 0, pos = 0;
 	unsigned int i = 0, r = 0, max = 0, digs = 0, rad = 10;
 
-	if (array == NULL || !size)
+	if (array == NULL || size < 2)
 		return;
 	for (i = 0; i < size; ++i)
 		if ((unsigned int)array[i] > max)

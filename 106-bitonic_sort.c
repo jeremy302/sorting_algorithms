@@ -48,7 +48,7 @@ void bsort(int *array, size_t size, int lo, int hi, char asc)
  */
 void bitonic_sort(int *array, size_t size)
 {
-	if (array == NULL || !size)
+	if (array == NULL || size < 2)
 		return;
 	bsort(array, size, 0, size - 1, 1);
 }
