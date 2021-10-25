@@ -11,10 +11,10 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int *arr = NULL, _arr_iv = 0, j = 0;
+	int *arr = NULL, j = 0, k = 0;
 	unsigned int i = 0, max = 0;
 
-	if (array == NULL || size < 2)
+	if (array == NULL || !size)
 		return;
 	for (i = 0; i < size; ++i)
 		if ((unsigned int)array[i] > max)
@@ -26,12 +26,9 @@ void counting_sort(int *array, size_t size)
 		arr[array[i]] += 1;
 
 	for (i = 0; i < max + 1; ++i)
-	{
-		_arr_iv = arr[i];
-		arr[i] = arr[i] + (i ? arr[i - 1] : 0);
-		for (j = arr[i] - 1; j >= 0 && (int)j < (arr[i] - 1) + _arr_iv; ++j)
-			array[j] = i;
-	}
+		if (arr[i])
+			for (j = 0; j < arr[i]; ++j)
+				array[k++] = i;
 	print_array(arr, max + 1);
 	free(arr);
 }
