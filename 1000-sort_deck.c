@@ -44,7 +44,7 @@ int card_val(const card_t *card)
 		: istreq(v, "9") ? 9 : istreq(v, "10") ? 10
 		: istreq(v, "Jack") ? 11 : istreq(v, "Queen") ? 12
 		: istreq(v, "King") ? 13 : 0;
-	return (((num - 1) * 4) + card->kind);
+	return ((card->kind * 13) + num); /* (((num - 1) * 4) + card->kind); */
 }
 
 /**
