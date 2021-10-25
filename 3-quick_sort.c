@@ -17,12 +17,12 @@ void qksort(int *array, size_t size, int lo, int hi)
 	if (lo >= hi)
 		return;
 	for (i = lo - 1, j = lo; j <= hi; j++)
-		if (array[j] < pivot || j == hi)
+		if (array[j] <= pivot || j == hi)
 		{
 			tmp = array[++i];
 			array[i] = array[j];
 			array[j] = tmp;
-			if (i != j)
+			if (i != j && array[i] != array[j])
 				print_array(array, size);
 		}
 	qksort(array, size, lo, i - 1);
