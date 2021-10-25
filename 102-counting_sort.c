@@ -30,6 +30,8 @@ void counting_sort(int *array, size_t size)
 
 	for (i = 0; i < max + 1; ++i)
 		arr[i] += i ? arr[i - 1] : 0;
+	print_array(arr, max + 1);
+
 	for (j = size - 1; j >= 0; --j)
 	{
 		num = array[j];
@@ -39,6 +41,5 @@ void counting_sort(int *array, size_t size)
 	}
 	for (i = 0; i < size; ++i)
 		array[i] = arr_out[i];
-	print_array(arr, max + 1);
 	free(arr);
 }
