@@ -78,7 +78,7 @@ void heap_sort(int *array, size_t size)
 		tmp = array[size - i - 1];
 		array[size - i - 1] = array[0];
 		array[0] = tmp;
-		if (tmp != array[size - i - 1])
+		if (size - i - 1 != 0)
 			print_array(array, size);
 		siftDown(array, size, size - i - 1, 0);
 	}
