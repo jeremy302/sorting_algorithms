@@ -70,7 +70,7 @@ void heap_sort(int *array, size_t size)
 {
 	int i = 0, tmp;
 
-	if (array == NULL)
+	if (array == NULL || size < 2)
 		return;
 	heapTree(array, size);
 	for (i = 0; i < (int)size; ++i)
@@ -78,8 +78,7 @@ void heap_sort(int *array, size_t size)
 		tmp = array[size - i - 1];
 		array[size - i - 1] = array[0];
 		array[0] = tmp;
-		if (tmp != array[size - i - 1])
-			print_array(array, size);
+		print_array(array, size);
 		siftDown(array, size, size - i - 1, 0);
 	}
 }
