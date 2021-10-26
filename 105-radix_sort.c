@@ -16,21 +16,20 @@ void radix_sort(int *array, size_t size)
 
 	if (array == NULL || size < 2)
 		return;
-	max = array[0], digs = max == 0;
+	max = array[0];
 	for (i = 0; i < size; ++i)
 		if (array[i] > max)
 			max = array[i];
+	digs = max == 0;
 	while (max != 0)
 		max /= 10, ++digs;
 	arr = malloc(sizeof(int) * (rad + 1 + size));
 	if (arr == NULL)
 		return;
 	arr_out = arr + rad + 1;
-	for (r = 0; r < digs; ++r)
+	for (r = 0; r < digs; ++r, div *= 10)
 	{
-		div = 1, dig = 0, pos = 0;
-		for (i = 0; i < r; ++i)
-			div *= 10;
+		dig = 0, pos = 0;
 		for (i = 0; i <= rad; ++i)
 			arr[i] = 0;
 		for (i = 0; i < size; ++i)
