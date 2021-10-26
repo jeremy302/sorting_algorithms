@@ -55,7 +55,7 @@ inline void heapTree(int *array, size_t size)
 {
 	int i = 0;
 
-	for (i = size / 2 - 1; i >= 0; --i)
+	for (i = size - 1; i >= 0; --i)
 		siftDown(array, size, size, i);
 }
 
