@@ -35,10 +35,7 @@ void radix_sort(int *array, size_t size)
 		for (i = 0; i < size; ++i)
 			arr_out[i] = 0;
 		for (i = 0; i < size; ++i)
-		{
-			dig = (array[i] / div) % 10;
-			arr[dig] += 1;
-		}
+			dig = (array[i] / div) % 10, arr[dig] += 1;
 		for (i = 0; i <= rad; ++i)
 			arr[i] += (i ? arr[i - 1] : 0);
 		for (j = size - 1; j >= 0; --j)
