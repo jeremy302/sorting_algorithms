@@ -23,7 +23,7 @@ void radix_sort(int *array, size_t size)
 	digs = max == 0;
 	while (max != 0)
 		max /= 10, ++digs;
-	arr = malloc(sizeof(int) * (rad + 1 + size));
+	arr = malloc(sizeof(int) * (rad + size));
 	if (arr == NULL)
 		return;
 	arr_out = arr + rad + 1;
