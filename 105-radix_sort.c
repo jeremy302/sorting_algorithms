@@ -11,16 +11,17 @@
  */
 void radix_sort(int *array, size_t size)
 {
-	int *arr = NULL, *arr_out = NULL, j = 0, div = 1, dig = 0, pos = 0;
-	unsigned int i = 0, r = 0, max = 0, digs = 0, rad = 10;
+	int *arr = NULL, *arr_out = NULL, j = 0, div = 1, dig = 0, pos = 0, max = 0;
+	unsigned int i = 0, r = 0, digs = 0, rad = 10;
 
 	if (array == NULL || size < 2)
 		return;
+	max = array[0], digs = max == 0;
 	for (i = 0; i < size; ++i)
-		if ((unsigned int)array[i] > max)
+		if (array[i] > max)
 			max = array[i];
 	while (max != 0)
-		max = max / 10, ++digs;
+		max /= 10, ++digs;
 	arr = malloc(sizeof(int) * (rad + 1 + size));
 	if (arr == NULL)
 		return;
