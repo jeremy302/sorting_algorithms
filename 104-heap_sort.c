@@ -16,7 +16,7 @@ int heapTrio(int *array, size_t size, size_t limit, int parent)
 		*v2 = v2_i < (int)limit ? array + v2_i : NULL,
 		*max = v1 == NULL ? NULL : v2 == NULL ? v1 : *v1 >= *v2 ? v1 : v2;
 
-	if (max != NULL && array[parent] < *max)
+	if (max != NULL && array[parent] <= *max)
 	{
 		tmp = array[parent];
 		array[parent] = *max;
