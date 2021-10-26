@@ -1,6 +1,16 @@
 #include "sort.h"
 
-
+/**
+ * cocktail_forward - forward selection sort
+ * @rcur: cur reference
+ * @rnxt: nxt reference
+ * @rlo: lo reference
+ * @rhi: hi reference
+ * @rlist: list reference
+ * @rin_hi: in_hi reference
+ *
+ * Return: void
+ */
 void cocktail_forward(listint_t **rcur, listint_t **rnxt, listint_t **rlo,
 					  listint_t **rhi, listint_t ***rlist, char *rin_hi)
 {
@@ -42,6 +52,18 @@ void cocktail_forward(listint_t **rcur, listint_t **rnxt, listint_t **rlo,
 	*rin_hi = in_hi;
 }
 
+/**
+ * cocktail_backward - backward selection sort
+ * @rcur: cur reference
+ * @rprv: prv reference
+ * @rnxt: nxt reference
+ * @rlo: lo reference
+ * @rhi: hi reference
+ * @rlist: list reference
+ * @rin_lo: in_lo reference
+ *
+ * Return: void
+ */
 void cocktail_backward(listint_t **rcur, listint_t **rprv, listint_t **rnxt,
 					   listint_t **rlo, listint_t **rhi, listint_t ***rlist,
 					   char *rin_lo)
